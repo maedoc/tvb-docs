@@ -14,6 +14,10 @@ parts:
   - caption: Reference
     chapters:
       - file: content/reference/index.md
+        sections:
+          - file: content/reference/model-cards/wilson-cowan.md
   - caption: Explanation
     chapters:
       - file: content/explanation/index.md
+        sections:
+          - file: content/explanation/phase-plane-explanation.md
