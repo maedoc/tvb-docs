@@ -4,9 +4,14 @@ version: 1
 project:
   title: TVB Simulation Documentation
   description: Documentation for TVB simulations — tutorials, how-to guides, reference, and explanation.
-  # Enable once the anywidget static-export plugin is vendored in plugins/:
-  # plugins:
-  #   - myst-anywidget-static-export
+  # Static anywidget export: turns executed anywidget cells into kernel-free
+  # static widgets in the HTML build (requires Node >= 22 and uv).
+  plugins:
+    - https://github.com/developmentseed/myst-anywidget-static-export/releases/latest/download/plugin.mjs
+  # Static assets copied verbatim into the built site (basename preserved).
+  # The standalone phase-plane widget is embedded via iframe from here.
+  static_files:
+    - content/_static/phase-plane-standalone.html
 
 site:
   title: TVB Simulation Documentation

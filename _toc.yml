@@ -7,6 +7,7 @@ parts:
         sections:
           - file: content/tutorials/getting-started.md
           - file: content/tutorials/first-simulation.md
+          - file: content/tutorials/phase-plane.md
   - caption: How-to guides
     chapters:
       - file: content/howtos/index.md
