@@ -1,0 +1,15 @@
+format: jb-book
+root: README.md
+parts:
+  - caption: Tutorials
+    chapters:
+      - file: content/tutorials/index.md
+  - caption: How-to guides
+    chapters:
+      - file: content/howtos/index.md
+  - caption: Reference
+    chapters:
+      - file: content/reference/index.md
+  - caption: Explanation
+    chapters:
+      - file: content/explanation/index.md

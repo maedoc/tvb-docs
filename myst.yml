@@ -1,0 +1,21 @@
+# MyST project configuration (https://mystmd.org)
+version: 1
+
+project:
+  name: TVB Simulation Documentation
+  description: Documentation for TVB simulations — tutorials, how-to guides, reference, and explanation.
+  # Enable once the anywidget static-export plugin is vendored in plugins/:
+  # plugins:
+  #   - myst-anywidget-static-export
+
+site:
+  title: TVB Simulation Documentation
+  nav:
+    - title: Tutorials
+      file: content/tutorials/index.md
+    - title: How-to guides
+      file: content/howtos/index.md
+    - title: Reference
+      file: content/reference/index.md
+    - title: Explanation
+      file: content/explanation/index.md

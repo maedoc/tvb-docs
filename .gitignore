@@ -1,0 +1,7 @@
+.venv/
+_build/
+execute/
+__pycache__/
+*.egg-info/
+.DS_Store
+standup-workflow.js
