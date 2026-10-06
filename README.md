@@ -28,19 +28,37 @@ published to GitHub Pages.
 
 ## Build
 
-The reproducible pinned environment lands in a follow-up step; until then, the
-generic build is:
+The build uses a pinned Python environment (created with
+[uv](https://docs.astral.sh/uv/)) and Node.js for the MyST CLI:
 
 ```bash
-# Prerequisites: Python 3.10+ and Node.js >= 20
-pip install mystmd
+# Prerequisites: Python 3.10+ and Node.js >= 20 on PATH
+# (the mystmd pip package auto-installs a private Node >= 20 if missing)
+uv venv                                   # create .venv/ (gitignored)
+uv pip install -r requirements/base.txt   # pinned top-level dependencies
+# or install the fully pinned transitive environment:
+uv pip install -r requirements/uv.lock
 
-myst build            # static site into _build/html
-myst build --execute  # execute notebooks/markdown first (cache in execute/)
-myst clean --execute  # force re-execution
+uv run myst build                   # validate config + MyST site content in _build/site
+uv run myst build --execute --html  # execute pages, static site into _build/html
+uv run myst clean --execute         # drop the execution cache (execute/) to force re-run
 ```
 
+The validated build command is `uv run myst build --execute --html`; the
+`--html` flag is what writes the static export to `_build/html` (plain
+`uv run myst build [--execute]` only writes MyST site content to `_build/site`).
+
 Serve `_build/html` with any static file server to preview locally.
+
+After changing `requirements/base.txt`, regenerate the lock file:
+
+```bash
+uv pip compile --universal --generate-hashes requirements/base.txt -o requirements/uv.lock
+```
+
+Local orchestration helpers such as `standup-workflow.js` must remain
+uncommitted; `.gitignore` excludes them (along with `.venv/`, `_build/`, and
+`execute/`).
 
 ## Contributing
 

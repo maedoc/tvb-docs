@@ -1,0 +1,13 @@
+# Pinned runtime environment for building and executing the MyST docs.
+# Regenerate the lock with:
+#   uv pip compile --universal --generate-hashes requirements/base.txt -o requirements/uv.lock
+mystmd==1.11.0
+jupyter-server==2.21.1
+ipykernel==7.4.0
+ipywidgets==8.1.9
+anywidget==0.11.0
+jupytext==1.19.6
+tvb-library==2.10.0
+tvb-phaseplane==0.1.0
+matplotlib==3.11.2
+numpy==2.5.3

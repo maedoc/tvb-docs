@@ -2,7 +2,7 @@
 version: 1
 
 project:
-  name: TVB Simulation Documentation
+  title: TVB Simulation Documentation
   description: Documentation for TVB simulations — tutorials, how-to guides, reference, and explanation.
   # Enable once the anywidget static-export plugin is vendored in plugins/:
   # plugins:
@@ -10,12 +10,15 @@ project:
 
 site:
   title: TVB Simulation Documentation
+  # Nav URLs are MyST page slugs (file-basename-derived, deduplicated with
+  # -1, -2, ...). After renaming/adding source files, re-check the slugs
+  # listed in _build/site/config.json and update these links.
   nav:
     - title: Tutorials
-      file: content/tutorials/index.md
+      url: /index
     - title: How-to guides
-      file: content/howtos/index.md
+      url: /index-1
     - title: Reference
-      file: content/reference/index.md
+      url: /index-2
     - title: Explanation
-      file: content/explanation/index.md
+      url: /index-3
