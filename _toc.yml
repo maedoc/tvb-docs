@@ -35,6 +35,10 @@ parts:
       - file: content/reference/model-cards/suphopf.md
       - file: content/reference/model-cards/linear.md
       - file: content/reference/model-cards/reduced-set-fitzhugh-nagumo.md
+      - file: content/reference/model-cards/reduced-wong-wang.md
+      - file: content/reference/model-cards/reduced-wong-wang-exc-inh.md
+      - file: content/reference/model-cards/deco-balanced-exc-inh.md
+      - file: content/reference/model-cards/reduced-set-hindmarsh-rose.md
       - file: content/reference/about-this-site.md
   - caption: Explanation
     chapters:
