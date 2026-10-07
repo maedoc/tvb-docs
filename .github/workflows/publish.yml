@@ -36,6 +36,10 @@ jobs:
         run: |
           uv venv
           uv pip install -r requirements/uv.lock
+      - name: Check references against Crossref
+        env:
+          CROSSREF_MAILTO: ${{ secrets.CROSSREF_MAILTO }}
+        run: python3 tools/check_refs.py content/references.bib
       - name: Build MyST HTML
         run: uv run myst build --execute --html
       - name: Setup Pages
