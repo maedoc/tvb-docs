@@ -16,12 +16,14 @@ import json
 import os
 import re
 import sys
+import time
 import difflib
 import urllib.request
 import urllib.parse
+from urllib.error import HTTPError, URLError
 
 BIB = sys.argv[1] if len(sys.argv) > 1 else "content/references.bib"
-MAILTO = os.environ.get("CROSSREF_MAILTO", "")
+MAILTO = os.environ.get("CROSSREF_MAILTO") or "tvb-docs-check-refs@users.noreply.github.com"
 THRESHOLD = 0.80  # normalized-title similarity below this => mismatch
 
 
@@ -54,13 +56,29 @@ def entries(text: str):
     return out
 
 
-def crossref_doi(doi: str):
+def crossref_doi(doi: str, retries: int = 5):
     url = f"https://api.crossref.org/works/{urllib.parse.quote(doi)}"
     if MAILTO:
         url += f"?mailto={urllib.parse.quote(MAILTO)}"
-    req = urllib.request.Request(url, headers={"User-Agent": "tvb-docs-check_refs/1.0"})
-    with urllib.request.urlopen(req, timeout=20) as r:
-        return json.load(r).get("message", {})
+    last = None
+    for attempt in range(retries):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "tvb-docs-check_refs/1.0 (mailto:%s)" % MAILTO})
+            with urllib.request.urlopen(req, timeout=25) as r:
+                return json.load(r).get("message", {})
+        except HTTPError as e:
+            last = e
+            if e.code in (429, 500, 502, 503, 504) and attempt < retries - 1:
+                time.sleep(2 ** attempt * 2)  # 2,4,8,16s backoff
+                continue
+            raise
+        except URLError as e:
+            last = e
+            if attempt < retries - 1:
+                time.sleep(2 ** attempt * 2)
+                continue
+            raise
+    raise last
 
 
 def bib_author_families(body: str):
@@ -102,6 +120,7 @@ def main():
             print(f"[UNRESOLVED] {key}: DOI {doi} -> {e}")
             hard += 1
             continue
+        time.sleep(0.4)  # polite pacing for the Crossref polite pool
         ct = (msg.get("title") or [""])[0]
         ratio = difflib.SequenceMatcher(None, norm(title), norm(ct)).ratio()
         if ratio < THRESHOLD:
