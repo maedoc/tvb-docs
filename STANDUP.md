@@ -74,8 +74,9 @@ and a GitHub Actions publish workflow.
    `connectivity_76`), since `tvb_data` is not in the pinned env.
 
 ## Next steps (post-standup backlog)
-- How-to guides: monitors/BOLD, integrators & noise, backends & GPU (tvb-simd `tvbk`), parameter
-  sweeps, SBI surrogate (tvb-xMax), hybrid multi-scale scheme (tvb-hybrid + tvb-kh parity notes).
+- ~~How-to guides: ...~~ → **First one landed:** *How-to: Write a custom stimulus subclass*
+  (`content/howtos/custom-stimulus.md`, addendum commit) — covers the custom `Equation` route
+  and the fully custom `StimuliRegion` subclass route, with executed examples.
 - Model cards for the remaining ~16 local dynamic models (generate from `tvb.simulator.models`).
 - API reference: generate from docstrings (autodoc2 / npdoc2json) — JB2 has no native autodoc yet.
 - Consider `.ipynb` notebook sources for native anywidget embeds (see finding 2).

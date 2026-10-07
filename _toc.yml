@@ -11,6 +11,8 @@ parts:
   - caption: How-to guides
     chapters:
       - file: content/howtos/index.md
+        sections:
+          - file: content/howtos/custom-stimulus.md
   - caption: Reference
     chapters:
       - file: content/reference/index.md
