@@ -21,6 +21,12 @@ parts:
         sections:
           - file: content/reference/model-cards/wilson-cowan.md
           - file: content/reference/model-cards/fitzhugh-nagumo.md
+          - file: content/reference/model-cards/jansen-rit.md
+          - file: content/reference/model-cards/zetterberg-jansen.md
+          - file: content/reference/model-cards/larter-breakspear.md
+          - file: content/reference/model-cards/dumont-gutkin.md
+          - file: content/reference/model-cards/k-ion-ex.md
+          - file: content/reference/model-cards/generic-2d-oscillator.md
           - file: content/reference/about-this-site.md
   - caption: Explanation
     chapters:
