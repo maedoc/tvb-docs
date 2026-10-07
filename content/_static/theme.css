@@ -1,65 +1,276 @@
 /*
  * tvb-docs theme overrides for the MyST book-theme.
  *
- * The book theme exposes its whole color skin as CSS custom properties on
- * :root (see app-*.css in the theme build). Overriding them here re-skins
- * nav, links, buttons, admonitions and the active-state consistently.
+ * Look & feel modelled on the Stan User Guide (mc-stan.org/docs):
+ *   - restrained, high-contrast neutral palette (warm near-black text on
+ *     white, one calm blue accent for links/active, light code surfaces)
+ *   - humanist sans body (Inter) + JetBrains Mono code, comfortable measure
+ *   - wider main column, tighter left book-nav, less dead whitespace
+ *   - always-visible section permalinks (#) and code copy buttons
  *
- * Palette: a teal/neural theme ("TVB Simulation").
- * Tweaks: reuse the --myst-color-* pattern; values here win because this
- * file is injected via the theme `style` option after the theme CSS.
+ * Mechanism: the book theme exposes its whole skin as --myst-color-* custom
+ * properties and lays the page out with a named-line CSS grid
+ * (.article-grid / .xl:article-grid). This file is injected AFTER the theme
+ * CSS via the `style` option, so these rules win. We keep every named grid
+ * line intact (col-margin-left/right, body-inset-*, gutter-*) and only
+ * resize the tracks, so the sidebar/TOC placement stays correct.
  */
+
+/* ------------------------------------------------------------------ *
+ * Webfonts: Inter (body) + JetBrains Mono (code). Loaded from bunny.net
+ * (privacy-friendly, no cookies). Falls back to system stacks if offline.
+ * ------------------------------------------------------------------ */
+@import url("https://fonts.bunny.net/css?family=inter:400,500,600,700&display=swap");
+@import url("https://fonts.bunny.net/css?family=jetbrains-mono:400,500&display=swap");
+
+/* ------------------------------------------------------------------ *
+ * Palette — Stan-inspired neutral. Light mode on :root, dark on html.dark.
+ * ------------------------------------------------------------------ */
 :root {
-  /* Brand / primary (buttons, active nav, saturated elements) */
-  --myst-color-primary: #0f766e;
-  --myst-color-primary-hover: #0b5f59;
-  --myst-color-link: #0f766e;
-  --myst-color-link-hover: #0b5f59;
-  --myst-color-link-underline: #5eead4;
-  --myst-color-active: #0f766e;
-  --myst-color-active-bg: rgba(20, 184, 166, 0.18);
-  --myst-color-active-surface: #f0fdfa;
-  --myst-color-focus-ring: #14b8a6;
-  --myst-color-focus-outline: #99f6e4;
+  /* Text & surfaces */
+  --myst-color-text: #1c1e21;            /* warm near-black body text */
+  --myst-color-text-secondary: #4b5563;
+  --myst-color-prose-body: #1c1e21;
+  --myst-color-surface: #f6f7f8;         /* subtle hover / secondary surface */
+  --myst-color-surface-header: #ffffff;
+
+  /* Brand / primary & links — one calm blue accent */
+  --myst-color-primary: #1e40af;
+  --myst-color-primary-hover: #1e3a8a;
+  --myst-color-link: #1d4ed8;
+  --myst-color-link-hover: #1e3a8a;
+  --myst-color-link-underline: #c7d2fe;
+  --myst-color-active: #1e40af;
+  --myst-color-active-bg: rgba(30, 64, 175, 0.10);
+  --myst-color-active-surface: #eef2ff;
+  --myst-color-focus-ring: #3b82f6;
+  --myst-color-focus-outline: #bfdbfe;
 
   /* Accent surfaces (boxes, cross-refs, callouts) */
-  --myst-color-accent-text: #0b5f59;
-  --myst-color-accent-surface: #f0fdfa;
-  --myst-color-accent-surface-border: #99f6e4;
-  --myst-color-accent-surface-text: #0b5f59;
-  --myst-color-inverse-bg: #0f766e;
+  --myst-color-accent-text: #1e3a8a;
+  --myst-color-accent-surface: #eef2ff;
+  --myst-color-accent-surface-border: #c7d2fe;
+  --myst-color-accent-surface-text: #1e3a8a;
+  --myst-color-inverse-bg: #1e40af;
   --myst-color-inverse-text: #ffffff;
 
-  /* Admonitions (info) in a complementary cyan */
-  --myst-color-info: #0e7490;
-  --myst-color-info-bg: #ecfeff;
-  --myst-color-info-text: #155e75;
+  /* Admonitions (info) — muted blue */
+  --myst-color-info: #1e40af;
+  --myst-color-info-bg: #eef2ff;
+  --myst-color-info-text: #1e3a8a;
 
-  /* Inline code */
-  --myst-color-code: #b45309;
+  /* Inline code — warm dark on light neutral */
+  --myst-color-code: #24292e;
 }
 
-/* Dark mode is applied by the theme via an `html.dark` class; keep the teal
-   brand accents legible on dark surfaces by brightening the primary. */
 html.dark {
-  --myst-color-primary: #2dd4bf;
-  --myst-color-primary-hover: #5eead4;
-  --myst-color-link: #5eead4;
-  --myst-color-link-hover: #99f6e4;
-  --myst-color-link-underline: #2dd4bf;
-  --myst-color-active: #2dd4bf;
-  --myst-color-active-bg: rgba(45, 212, 191, 0.18);
-  --myst-color-active-surface: #134e4a;
-  --myst-color-focus-ring: #5eead4;
-  --myst-color-focus-outline: #2dd4bf;
-  --myst-color-accent-text: #5eead4;
-  --myst-color-accent-surface: #134e4a;
-  --myst-color-accent-surface-border: #2dd4bf;
-  --myst-color-accent-surface-text: #5eead4;
-  --myst-color-inverse-bg: #134e4a;
+  --myst-color-text: #e6e8eb;
+  --myst-color-text-secondary: #9ca3af;
+  --myst-color-prose-body: #e6e8eb;
+  --myst-color-surface: #1f2428;
+  --myst-color-surface-header: #15181c;
+
+  --myst-color-primary: #7aa2f7;
+  --myst-color-primary-hover: #9bb8ff;
+  --myst-color-link: #7aa2f7;
+  --myst-color-link-hover: #9bb8ff;
+  --myst-color-link-underline: #3b5b92;
+  --myst-color-active: #7aa2f7;
+  --myst-color-active-bg: rgba(122, 162, 247, 0.16);
+  --myst-color-active-surface: #1c2531;
+  --myst-color-focus-ring: #7aa2f7;
+  --myst-color-focus-outline: #3b5b92;
+
+  --myst-color-accent-text: #9bb8ff;
+  --myst-color-accent-surface: #1c2531;
+  --myst-color-accent-surface-border: #3b5b92;
+  --myst-color-accent-surface-text: #9bb8ff;
+  --myst-color-inverse-bg: #1c2531;
   --myst-color-inverse-text: #ffffff;
-  --myst-color-info: #67e8f9;
-  --myst-color-info-bg: #164e63;
-  --myst-color-info-text: #a5f3fc;
-  --myst-color-code: #fbbf24;
+
+  --myst-color-info: #7aa2f7;
+  --myst-color-info-bg: #16202e;
+  --myst-color-info-text: #9bb8ff;
+
+  --myst-color-code: #e6e8eb;
+}
+
+/* ------------------------------------------------------------------ *
+ * Typography — Inter body, JetBrains Mono code, comfortable reading size.
+ * ------------------------------------------------------------------ */
+body,
+.myst-article,
+.article,
+.content {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+}
+
+code,
+pre,
+code.sourceCode,
+pre.sourceCode,
+.myst-code-copy-icon {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    "Liberation Mono", monospace;
+}
+
+/* Comfortable measure & leading for prose. */
+.myst-article p,
+.article p,
+.content p,
+.myst-article li,
+.content li {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.myst-article h1, .article h1 { font-size: 2rem; line-height: 1.25; font-weight: 700; }
+.myst-article h2, .article h2 { font-size: 1.5rem; line-height: 1.3; font-weight: 600; margin-top: 1.6rem; }
+.myst-article h3, .article h3 { font-size: 1.25rem; line-height: 1.35; font-weight: 600; }
+.myst-article h4, .article h4 { font-size: 1.1rem; font-weight: 600; }
+
+/* Inline code: warm dark on a light neutral chip (Stan-like). */
+:not(pre) > code {
+  background: var(--myst-color-surface);
+  border: 1px solid var(--myst-color-accent-surface-border);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+  font-size: 0.92em;
+}
+
+/* ------------------------------------------------------------------ *
+ * Layout — wider main column, tighter gutters. We resize the named-line
+ * grid tracks (keeping every named line) at the xl breakpoints so the
+ * article body region grows and the side gutters shrink.
+ * ------------------------------------------------------------------ */
+@media (min-width: 1024px) {
+  .article-grid,
+  .xl\:article-grid {
+    grid-template-columns:
+      [screen-start] .25rem
+      [screen-inset-start] 1fr
+      [page-start] 1rem
+      [page-inset-start] minmax(3rem, 13rem)
+      [body-outset-start] 1rem
+      [body-start gutter-left-start] .5rem
+      [body-inset-start] minmax(11ch, 14ch)
+      [middle-start] minmax(11ch, 14ch)
+      [gutter-left-end] minmax(11ch, 14ch) minmax(11ch, 14ch)
+      [gutter-right-start] minmax(11ch, 14ch)
+      [middle-end] minmax(11ch, 14ch)
+      [body-inset-end] .5rem
+      [body-end gutter-right-end] 1rem
+      [body-outset-end] minmax(4rem, 12rem)
+      [page-inset-end] 1rem
+      [page-end] 1fr
+      [screen-inset-end] .25rem
+      [screen-end];
+  }
+}
+
+@media (min-width: 1280px) {
+  .article-grid,
+  .xl\:article-grid {
+    grid-template-columns:
+      [screen-start] .25rem
+      [screen-inset-start] 1fr
+      [page-start] 1rem
+      [page-inset-start] minmax(3rem, 14rem)
+      [body-outset-start] 1rem
+      [body-start gutter-left-start] .5rem
+      [body-inset-start] minmax(12ch, 15ch)
+      [middle-start] minmax(12ch, 15ch)
+      [gutter-left-end] minmax(12ch, 15ch) minmax(12ch, 15ch)
+      [gutter-right-start] minmax(12ch, 15ch)
+      [middle-end] minmax(12ch, 15ch)
+      [body-inset-end] .5rem
+      [body-end gutter-right-end] 1rem
+      [body-outset-end] minmax(4rem, 13rem)
+      [page-inset-end] 1rem
+      [page-end] 1fr
+      [screen-inset-end] .25rem
+      [screen-end];
+  }
+}
+
+@media (min-width: 1536px) {
+  .article-grid,
+  .xl\:article-grid {
+    grid-template-columns:
+      [screen-start] .5rem
+      [screen-inset-start] 1fr
+      [page-start] 1rem
+      [page-inset-start] minmax(3rem, 15rem)
+      [body-outset-start] 1rem
+      [body-start gutter-left-start] .5rem
+      [body-inset-start] minmax(13ch, 16ch)
+      [middle-start] minmax(13ch, 16ch)
+      [gutter-left-end] minmax(13ch, 16ch) minmax(13ch, 16ch)
+      [gutter-right-start] minmax(13ch, 16ch)
+      [middle-end] minmax(13ch, 16ch)
+      [body-inset-end] .5rem
+      [body-end gutter-right-end] 1rem
+      [body-outset-end] minmax(4rem, 14rem)
+      [page-inset-end] 1rem
+      [page-end] 1fr
+      [screen-inset-end] .5rem
+      [screen-end];
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Compact left book-nav — tighter item spacing, narrower sidebar.
+ * ------------------------------------------------------------------ */
+.myst-primary-sidebar {
+  max-width: 280px;
+}
+.myst-primary-sidebar-nav,
+.myst-primary-sidebar-toc {
+  padding-top: 0.75rem;
+}
+.myst-primary-sidebar-item,
+.myst-primary-sidebar-item-short,
+.myst-toc-item {
+  padding: 0.25rem 0.5rem;
+  margin: 0.05rem 0;
+  font-size: 0.92rem;
+  line-height: 1.35;
+}
+.myst-toc-item {
+  padding-left: 0.75rem;
+}
+
+/* ------------------------------------------------------------------ *
+ * Always-visible section permalinks — show a calm blue "#" instead of the
+ * hover-only pilcrow.
+ * ------------------------------------------------------------------ */
+a[title="Link to this Section"] {
+  opacity: 1 !important;
+  width: auto !important;
+  transform: none !important;
+  color: var(--myst-color-link) !important;
+  font-weight: 400;
+  margin-left: 0.35rem;
+  font-size: 0;            /* hide the "¶" glyph */
+}
+a[title="Link to this Section"]::after {
+  content: "#";
+  font-size: 0.85em;
+  opacity: 0.55;
+}
+a[title="Link to this Section"]:hover::after {
+  opacity: 1;
+}
+
+/* ------------------------------------------------------------------ *
+ * Always-visible code copy button (subtle until hovered).
+ * ------------------------------------------------------------------ */
+.myst-code-copy-icon {
+  opacity: 0.4 !important;
+}
+.myst-code-copy-icon:hover,
+.myst-code-copy-icon:focus,
+.myst-code-copy-icon:active {
+  opacity: 1 !important;
 }
