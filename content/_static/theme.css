@@ -140,91 +140,53 @@ pre.sourceCode,
 }
 
 /* ------------------------------------------------------------------ *
- * Layout — wider main column, tighter gutters. We resize the named-line
- * grid tracks (keeping every named line) at the xl breakpoints so the
- * article body region grows and the side gutters shrink.
+ * Layout — clean 20% / 60% / 20% split (left nav / main / right TOC).
+ *
+ * The book theme lays the page out with a named-line CSS grid. We keep
+ * every named line intact (so col-margin-left/right, body-inset-*,
+ * gutter-* placements stay correct) and only resize the tracks to pure
+ * fractions that sum to 1.00fr = 100% of the (full-screen) article grid:
+ *
+ *   left  = 0.03 outer margin + 0.15 sidebar + 0.02 gap        = 0.20
+ *   main  = 6 body columns x 0.10fr                            = 0.60
+ *   right = 0.02 gap + 0.15 TOC + 0.03 outer margin            = 0.20
+ *
+ * The 0.02fr gaps replace the old fixed 1rem/3rem gutters that left a
+ * dead band between the nav and the text. One override at min-width:1024px
+ * wins the cascade at every xl breakpoint (this file loads after the theme).
  * ------------------------------------------------------------------ */
+.article {
+  max-width: none; /* let the grid drive the main width, not the 65ch prose cap */
+}
+
 @media (min-width: 1024px) {
   .article-grid,
   .xl\:article-grid {
     grid-template-columns:
-      [screen-start] .25rem
-      [screen-inset-start] 1fr
-      [page-start] 1rem
-      [page-inset-start] minmax(3rem, 13rem)
-      [body-outset-start] 1rem
-      [body-start gutter-left-start] .5rem
-      [body-inset-start] minmax(11ch, 14ch)
-      [middle-start] minmax(11ch, 14ch)
-      [gutter-left-end] minmax(11ch, 14ch) minmax(11ch, 14ch)
-      [gutter-right-start] minmax(11ch, 14ch)
-      [middle-end] minmax(11ch, 14ch)
-      [body-inset-end] .5rem
-      [body-end gutter-right-end] 1rem
-      [body-outset-end] minmax(4rem, 12rem)
-      [page-inset-end] 1rem
-      [page-end] 1fr
-      [screen-inset-end] .25rem
-      [screen-end];
-  }
-}
-
-@media (min-width: 1280px) {
-  .article-grid,
-  .xl\:article-grid {
-    grid-template-columns:
-      [screen-start] .25rem
-      [screen-inset-start] 1fr
-      [page-start] 1rem
-      [page-inset-start] minmax(3rem, 14rem)
-      [body-outset-start] 1rem
-      [body-start gutter-left-start] .5rem
-      [body-inset-start] minmax(12ch, 15ch)
-      [middle-start] minmax(12ch, 15ch)
-      [gutter-left-end] minmax(12ch, 15ch) minmax(12ch, 15ch)
-      [gutter-right-start] minmax(12ch, 15ch)
-      [middle-end] minmax(12ch, 15ch)
-      [body-inset-end] .5rem
-      [body-end gutter-right-end] 1rem
-      [body-outset-end] minmax(4rem, 13rem)
-      [page-inset-end] 1rem
-      [page-end] 1fr
-      [screen-inset-end] .25rem
-      [screen-end];
-  }
-}
-
-@media (min-width: 1536px) {
-  .article-grid,
-  .xl\:article-grid {
-    grid-template-columns:
-      [screen-start] .5rem
-      [screen-inset-start] 1fr
-      [page-start] 1rem
-      [page-inset-start] minmax(3rem, 15rem)
-      [body-outset-start] 1rem
-      [body-start gutter-left-start] .5rem
-      [body-inset-start] minmax(13ch, 16ch)
-      [middle-start] minmax(13ch, 16ch)
-      [gutter-left-end] minmax(13ch, 16ch) minmax(13ch, 16ch)
-      [gutter-right-start] minmax(13ch, 16ch)
-      [middle-end] minmax(13ch, 16ch)
-      [body-inset-end] .5rem
-      [body-end gutter-right-end] 1rem
-      [body-outset-end] minmax(4rem, 14rem)
-      [page-inset-end] 1rem
-      [page-end] 1fr
-      [screen-inset-end] .5rem
+      [screen-start] 0
+      [screen-inset-start] 0.03fr
+      [page-start] 0
+      [page-inset-start] 0.15fr
+      [body-outset-start] 0
+      [body-start gutter-left-start] 0.02fr
+      [body-inset-start] 0.10fr
+      [middle-start] 0.10fr
+      [gutter-left-end] 0.10fr 0.10fr
+      [gutter-right-start] 0.10fr
+      [middle-end] 0.10fr
+      [body-inset-end] 0.02fr
+      [body-end gutter-right-end] 0
+      [body-outset-end] 0.15fr
+      [page-inset-end] 0
+      [page-end] 0.03fr
+      [screen-inset-end] 0
       [screen-end];
   }
 }
 
 /* ------------------------------------------------------------------ *
- * Compact left book-nav — tighter item spacing, narrower sidebar.
+ * Compact left book-nav — tighter item spacing.
  * ------------------------------------------------------------------ */
-.myst-primary-sidebar {
-  max-width: 280px;
-}
 .myst-primary-sidebar-nav,
 .myst-primary-sidebar-toc {
   padding-top: 0.75rem;
