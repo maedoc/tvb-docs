@@ -31,6 +31,10 @@ parts:
       - file: content/reference/model-cards/coombes-byrne-2d.md
       - file: content/reference/model-cards/gast-smidt-knosche-sd.md
       - file: content/reference/model-cards/gast-smidt-knosche-sf.md
+      - file: content/reference/model-cards/kuramoto.md
+      - file: content/reference/model-cards/suphopf.md
+      - file: content/reference/model-cards/linear.md
+      - file: content/reference/model-cards/reduced-set-fitzhugh-nagumo.md
       - file: content/reference/about-this-site.md
   - caption: Explanation
     chapters:
