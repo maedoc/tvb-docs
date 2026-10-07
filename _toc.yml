@@ -26,6 +26,12 @@ parts:
     chapters:
       - file: content/explanation/index.md
         sections:
+          - file: content/explanation/connectome.md
+          - file: content/explanation/functional-connectivity.md
+          - file: content/explanation/forward-models.md
+          - file: content/explanation/dynamical-systems-theory.md
+          - file: content/explanation/bifurcation-analysis.md
+          - file: content/explanation/excitation-inhibition-balance.md
           - file: content/explanation/neural-mass-models.md
           - file: content/explanation/phase-plane-explanation.md
           - file: content/explanation/tvbl-sim-to-inference.md
