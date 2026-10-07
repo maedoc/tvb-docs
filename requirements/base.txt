@@ -11,3 +11,9 @@ tvb-library==2.10.0
 tvb-phaseplane==0.1.0
 matplotlib==3.11.2
 numpy==2.5.3
+# marimo islands pipeline (reactive {marimo} cells) + the vendored tvbl engine deps
+marimo
+jupyter-book-marimo
+autograd
+tqdm
+plotly

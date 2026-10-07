@@ -8,18 +8,22 @@ parts:
           - file: content/tutorials/getting-started.md
           - file: content/tutorials/first-simulation.md
           - file: content/tutorials/phase-plane.md
+          - file: content/tutorials/tvbl-quickstart.md
   - caption: How-to guides
     chapters:
       - file: content/howtos/index.md
         sections:
           - file: content/howtos/custom-stimulus.md
+          - file: content/howtos/tvbl-inference.md
   - caption: Reference
     chapters:
       - file: content/reference/index.md
         sections:
           - file: content/reference/model-cards/wilson-cowan.md
+          - file: content/reference/model-cards/fitzhugh-nagumo.md
   - caption: Explanation
     chapters:
       - file: content/explanation/index.md
         sections:
           - file: content/explanation/phase-plane-explanation.md
+          - file: content/explanation/tvbl-sim-to-inference.md

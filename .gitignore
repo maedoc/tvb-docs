@@ -5,3 +5,5 @@ __pycache__/
 *.egg-info/
 .DS_Store
 standup-workflow.js
+content/_code/**/__pycache__/
+.jupyter-book-marimo/
