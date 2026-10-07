@@ -107,7 +107,7 @@ Primary reference: [@kuramoto1975; @strogatz2000].
 
 Kuramoto, Y. (1975). Self-entrainment of a population of coupled non-linear
 oscillators. In *International Symposium on Mathematical Problems in
-Theoretical Physics*, *Lecture Notes in Physics*, vol. 39, page 420. Springer.
+Theoretical Physics*, *Lecture Notes in Physics*, vol. 39, pp. 420–422. Springer.
 
 The standard account of the synchronization transition — the order parameter,
 the self-consistency equation, and the critical coupling for several frequency

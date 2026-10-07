@@ -113,9 +113,9 @@ Primary reference: [@fitzhugh1961; @nagumo1962].
 The model has no single origin paper: it is TVB's generic two-variable
 population oscillator, a superset of FitzHugh–Nagumo — FitzHugh, R. (1961).
 Impulses and physiological states in theoretical models of nerve membrane.
-*Biophysical Journal*, 1: 445 — and Nagumo, J., Arimoto, S. and Yoshizawa, S.
+*Biophysical Journal*, 1(6): 445–466 — and Nagumo, J., Arimoto, S. and Yoshizawa, S.
 (1962). An active pulse transmission line simulating nerve axon. *Proceedings of
-the IRE*, 50: 2061.
+the IRE*, 50(10): 2061–2070.
 
 The reduced, configurable formulation used here comes from Stefanescu, R. and
 Jirsa, V.K. (2008). A low dimensional description of globally coupled

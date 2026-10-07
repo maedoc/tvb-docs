@@ -98,7 +98,7 @@ change.
 Primary reference: [@wilsonCowan1972].
 
 Wilson, H.R. and Cowan, J.D. (1972). Excitatory and inhibitory interactions in
-localized populations of model neurons. *Biophysical Journal*, 12(1): 24–50.
+localized populations of model neurons. *Biophysical Journal*, 12(1): 1–24.
 [DOI: 10.1016/S0006-3495(72)86068-5](https://doi.org/10.1016/S0006-3495(72)86068-5)
 
 Defaults follow figure 4 of Wilson & Cowan (1972), p. 10, with the saturation parameters

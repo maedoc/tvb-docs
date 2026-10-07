@@ -114,7 +114,7 @@ is the one described generally on the
 
 Primary reference: [@jansenRit1995].
 
-Jansen, B.H. and Rit, P.G. (1995). Electroencephalogram and visual evoked
+Jansen, B.H. and Rit, V.G. (1995). Electroencephalogram and visual evoked
 potential generation in a mathematical model of coupled cortical columns.
 *Biological Cybernetics*, 73: 357–366.
 

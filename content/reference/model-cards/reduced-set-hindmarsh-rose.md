@@ -232,8 +232,9 @@ Stefanescu–Jirsa 3D, and the mode-coefficient integrals reproduced by
 `update_derived_parameters` are given in that paper's supplemental material.
 
 The oscillator being reduced is Hindmarsh, J.L. and Rose, R.M. (1984). A
-theoretical analysis of complex electrical activity in the nervous system.
-*Bulletin of Mathematical Biology*, 46(3): 549–564. The dynamic mean-field / mode
+model of neuronal bursting using three coupled first order differential
+equations. *Proceedings of the Royal Society of London. Series B*, 221(1222):
+87–102. The dynamic mean-field / mode
 expansion used to reduce a heterogeneous set of such oscillators follows Jirsa,
 V.K. and Haken, H. (2002). On the formulation of the dynamic mean field for
 spatially extended models of brain function. *Bulletin of Mathematical Biology*,

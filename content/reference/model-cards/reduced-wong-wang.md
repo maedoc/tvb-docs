@@ -128,6 +128,6 @@ The form implemented in `tvbl` — including the parameter values above — is t
 from the class docstring's citation of Deco, G., Ponce Alvarez, A., Mantini, D.,
 Romani, G.L., Hagmann, P. and Corbetta, M. (2013). Resting-state functional
 connectivity emerges from structurally and dynamically shaped slow linear
-fluctuations. *Journal of Neuroscience*, 32(27): 11239–11252, where this reduced
+fluctuations. *Journal of Neuroscience*, 33(27): 11239–11252, where this reduced
 model is used to generate the slow fluctuations that give rise to resting-state
 BOLD connectivity.
