@@ -21,6 +21,7 @@ parts:
         sections:
           - file: content/reference/model-cards/wilson-cowan.md
           - file: content/reference/model-cards/fitzhugh-nagumo.md
+          - file: content/reference/about-this-site.md
   - caption: Explanation
     chapters:
       - file: content/explanation/index.md

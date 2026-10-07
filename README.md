@@ -1,66 +1,56 @@
-# TVB Simulation Documentation
+---
+bibliography:
+  - content/references.bib
+---
+# The Virtual Brain — Simulation Documentation
 
-Documentation for running and understanding **TVB (The Virtual Brain)
-simulations**, built as a [Jupyter Book 2](https://mystmd.org) / MyST site and
-published to GitHub Pages.
+**The Virtual Brain (TVB)** is an open-source platform for simulating whole-brain
+dynamics. It couples an individual's *structural connectome* — the wiring diagram
+of brain regions measured with diffusion MRI — with *neural mass models* that
+describe the activity of each region, then drives those coupled regions through
+time to produce signals you can compare against real EEG, MEG, or fMRI recordings
+@sanzleon2013.
 
-## What this repo is
+## How a TVB simulation fits together
 
-- Simulation-first documentation for TVB: executable pages that you can read,
-  run, and build on.
-- A [Diátaxis](https://diataxis.fr)-structured site with four quadrants:
-  `content/tutorials` (learn by doing), `content/howtos` (task recipes),
-  `content/reference` (accurate information), and `content/explanation`
-  (conceptual background).
+Every simulation on this site is built from the same four pieces:
 
-## Why this stack
+1. **A connectome** — a weighted adjacency matrix of brain regions and the fibre
+   tracts between them (from diffusion MRI / tractography).
+2. **A neural mass model** — a small system of differential equations giving the
+   dynamics of one region (e.g. Wilson–Cowan, Jansen–Rit, FitzHugh–Nagumo).
+3. **Coupling** — the connectome scales each region's output into the input of
+   its neighbours, so the whole network evolves together.
+4. **Monitors & forward models** — the simulated activity is turned into observables
+   (raw time series, power spectra, BOLD/EEG signals) for comparison with data.
 
-- **Jupyter Book 2 / MyST** (`mystmd`) gives one source tree for Markdown and
-  notebooks, with pages executed at build time so examples cannot silently rot.
-- **Diátaxis** keeps every page honest about its purpose, so readers always
-  know whether they are being taught, coached, informed, or oriented — and
-  writers know what "good" looks like for the page they are adding.
-- **The trajecturtle phase-plane widget** (an `anywidget`) lets readers explore
-  model dynamics interactively, right inside a documentation page. It is
-  embedded natively via the `myst-anywidget-static-export` plugin (see
-  `myst.yml`) with a standalone HTML export as fallback, and its code lives
-  under `plugins/`.
+Change any piece — the model, its parameters, the coupling, a stimulus — and you
+change the emergent whole-brain dynamics. That is what these docs let you do.
 
-## Build
+:::{note}
+**These docs are executable.** Code cells run in the build, and interactive
+explorers (marimo islands, the phase-plane widget) recompute live in your
+browser — no server, no install. Read a page, drag a slider, and the simulation
+responds. Examples are executed at build time, so they cannot silently rot.
+:::
 
-The build uses a pinned Python environment (created with
-[uv](https://docs.astral.sh/uv/)) and Node.js for the MyST CLI:
+## Where to go
 
-```bash
-# Prerequisites: Python 3.10+ and Node.js >= 20 on PATH
-# (the mystmd pip package auto-installs a private Node >= 20 if missing)
-uv venv                                   # create .venv/ (gitignored)
-uv pip install -r requirements/base.txt   # pinned top-level dependencies
-# or install the fully pinned transitive environment:
-uv pip install -r requirements/uv.lock
+This documentation follows [Diátaxis](https://diataxis.fr): four kinds of page for
+four kinds of need. Pick the one that matches what you are trying to do.
 
-uv run myst build                   # validate config + MyST site content in _build/site
-uv run myst build --execute --html  # execute pages, static site into _build/html
-uv run myst clean --execute         # drop the execution cache (execute/) to force re-run
-```
+| If you want to… | Go to | It is… |
+| --- | --- | --- |
+| **learn by doing** a first simulation, start to finish | [Tutorials](tutorials/index.md) | guided lessons |
+| **accomplish a specific task** (add a stimulus, run inference, …) | [How-to guides](howtos/index.md) | practical recipes |
+| **look up precise facts** (model equations, parameters, the API) | [Reference](reference/index.md) | accurate description |
+| **understand why** things work the way they do (concepts, theory) | [Explanation](explanation/index.md) | conceptual background |
 
-The validated build command is `uv run myst build --execute --html`; the
-`--html` flag is what writes the static export to `_build/html` (plain
-`uv run myst build [--execute]` only writes MyST site content to `_build/site`).
+**New here?** Start with the [Tutorials](tutorials/index.md) — run a first
+simulation, then explore the phase plane interactively.
 
-Serve `_build/html` with any static file server to preview locally.
+## About this documentation
 
-After changing `requirements/base.txt`, regenerate the lock file:
-
-```bash
-uv pip compile --universal --generate-hashes requirements/base.txt -o requirements/uv.lock
-```
-
-Local orchestration helpers such as `standup-workflow.js` must remain
-uncommitted; `.gitignore` excludes them (along with `.venv/`, `_build/`, and
-`execute/`).
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the writers guide (Diátaxis rules,
-page conventions, and how to add a page or a notebook).
+How this site is built, the toolchain, and the writing rules live in
+[About this documentation](reference/about-this-site.md) and
+[CONTRIBUTING.md](CONTRIBUTING.md).
