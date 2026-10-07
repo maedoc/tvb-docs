@@ -65,8 +65,9 @@
   --myst-color-info-bg: #eef2ff;
   --myst-color-info-text: #1e3a8a;
 
-  /* Inline code — warm dark on light neutral */
-  --myst-color-code: #24292e;
+  /* Inline code — warm amber, clearly distinct from near-black body text
+     and from the blue links. */
+  --myst-color-code: #9a3412;
 }
 
 html.dark {
@@ -102,7 +103,7 @@ html.dark {
   --myst-color-info-bg: #16202e;
   --myst-color-info-text: #9bb8ff;
 
-  --myst-color-code: #e6e8eb;
+  --myst-color-code: #fbbf24;
 }
 
 /* ------------------------------------------------------------------ *
