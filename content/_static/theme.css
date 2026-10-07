@@ -27,12 +27,18 @@
  * Palette — Stan-inspired neutral. Light mode on :root, dark on html.dark.
  * ------------------------------------------------------------------ */
 :root {
+  /* Page & card backgrounds (the lever that was missing — the root wrapper
+     uses bg-myst-bg, the article card is a hardcoded bg-white). */
+  --myst-color-bg: #f6f5f2;             /* warm paper screen behind everything */
+  --myst-color-bg-secondary: #e9e7e1;   /* deeper warm — search bar, secondary */
+
   /* Text & surfaces */
   --myst-color-text: #1c1e21;            /* warm near-black body text */
   --myst-color-text-secondary: #4b5563;
   --myst-color-prose-body: #1c1e21;
-  --myst-color-surface: #f6f7f8;         /* subtle hover / secondary surface */
-  --myst-color-surface-header: #ffffff;
+  --myst-color-surface: #efece6;         /* subtle hover / secondary surface */
+  --myst-color-surface-hover: #e4e0d8;
+  --myst-color-surface-header: #fbfaf7;
 
   /* Brand / primary & links — one calm blue accent */
   --myst-color-primary: #1e40af;
@@ -64,10 +70,14 @@
 }
 
 html.dark {
+  --myst-color-bg: #14161a;
+  --myst-color-bg-secondary: #1f2227;
+
   --myst-color-text: #e6e8eb;
   --myst-color-text-secondary: #9ca3af;
   --myst-color-prose-body: #e6e8eb;
   --myst-color-surface: #1f2428;
+  --myst-color-surface-hover: #2a3036;
   --myst-color-surface-header: #15181c;
 
   --myst-color-primary: #7aa2f7;
@@ -132,11 +142,18 @@ pre.sourceCode,
 
 /* Inline code: warm dark on a light neutral chip (Stan-like). */
 :not(pre) > code {
-  background: var(--myst-color-surface);
+  background: var(--myst-color-bg-secondary);
   border: 1px solid var(--myst-color-accent-surface-border);
   border-radius: 4px;
   padding: 0.1em 0.35em;
   font-size: 0.92em;
+}
+
+/* Article card: warm near-white instead of the hardcoded stark bg-white,
+   so it reads as an elevated panel on the warm paper screen. The
+   .article.bg-white selector (0,2,0) also beats the theme's dark variant. */
+.article.bg-white {
+  background: var(--myst-color-surface-header);
 }
 
 /* ------------------------------------------------------------------ *
