@@ -1,3 +1,7 @@
+---
+bibliography:
+  - ../../references.bib
+---
 # Reduced Set FitzHugh–Nagumo
 
 The Reduced Set FitzHugh–Nagumo model is a **population (density) formulation**
@@ -172,6 +176,8 @@ class attributes, not traits:
   recovery variables to settle.
 
 ## Paper Reference
+
+Primary reference: [@stefanescu2008].
 
 Stefanescu, R. and Jirsa, V.K. (2008). A low dimensional description of globally
 coupled heterogeneous neural networks of excitatory and inhibitory neurons.

@@ -1,3 +1,7 @@
+---
+bibliography:
+  - ../../references.bib
+---
 # Coombes–Byrne 2D
 
 Coombes–Byrne 2D is the Coombes–Byrne population with the synaptic conductance
@@ -97,6 +101,8 @@ $r \in [0, 2]$, $V \in [-2, 1.5]$.
   whenever the synapse's rise and decay time matters.
 
 ## Paper Reference
+
+Primary reference: [@coombesByrne2019].
 
 Coombes, S. and Byrne, Á. (2019). Next generation neural mass models. In
 *Nonlinear Dynamics in Computational Neuroscience*, Springer, Cham, pp. 1–16.

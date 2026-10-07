@@ -1,3 +1,7 @@
+---
+bibliography:
+  - ../../references.bib
+---
 # Epileptor 2D
 
 The Epileptor 2D is the slow two-variable skeleton of the Epileptor: the fast
@@ -126,6 +130,8 @@ them control the same curve.
 
 ## Paper Reference
 
+Primary reference: [@jirsa2014; @proix2014; @proix2017].
+
 The reduction follows Proix, T., Bartolomei, F., Chauvel, P., Bernard, C. and
 Jirsa, V.K. (2014). Permittivity coupling across brain regions determines
 seizure recruitment in partial epilepsy. *Journal of Neuroscience*, 34:
@@ -133,6 +139,6 @@ seizure recruitment in partial epilepsy. *Journal of Neuroscience*, 34:
 Individual brain structure and modelling predict seizure propagation. *Brain*,
 140: 641–654. The parent model is Jirsa, V.K., Stacey, W.C., Quilichini, P.P.,
 Ivanov, A.I. and Bernard, C. (2014). On the nature of seizure dynamics. *Brain*,
-124(8): 2210–2230; see the [Epileptor](epileptor.md) card for the full
+137(8): 2210–2230; see the [Epileptor](epileptor.md) card for the full
 six-dimensional system, and [neural mass models](../../explanation/neural-mass-models.md)
 for the fast–slow population-model template this reduction preserves.

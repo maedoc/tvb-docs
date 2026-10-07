@@ -1,3 +1,7 @@
+---
+bibliography:
+  - ../../references.bib
+---
 # Larter–Breakspear
 
 The Larter–Breakspear model is a conductance-based cortical column: a modified
@@ -130,9 +134,11 @@ $(V, W)$ nullclines.
 
 ## Paper Reference
 
-Larter, G.C., Evans, J.M., Hutt, A. and Srinfield, J. (1999). A coupled ordinary
+Primary reference: [@larter1999; @breakspear2003net; @breakspear2003].
+
+Larter, R., Speelman, B. and Worth, R.M. (1999). A coupled ordinary
 differential equation lattice model for the simulation of epileptic seizures.
-*Chaos*, 9(3): 795–806.
+*Chaos*, 9(3): 795–804.
 
 The equations and default parameters used by this implementation are taken from
 Breakspear, M.J., Terry, J.R. and Friston, K.J. (2003). Modulation of excitatory

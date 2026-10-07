@@ -1,3 +1,7 @@
+---
+bibliography:
+  - ../../references.bib
+---
 # Montbrió–Pazo–Roxin
 
 The Montbrió–Pazo–Roxin model is an exact macroscopic description of an
@@ -110,6 +114,8 @@ Explore the nullclines and their movement interactively in the
 supports this model (`model_name="mpr"`).
 
 ## Paper Reference
+
+Primary reference: [@montbrio2015].
 
 Montbrió, E., Pazó, D. and Roxin, A. (2015). Macroscopic description for
 networks of spiking neurons. *Physical Review X*, 5(2): 021028. The equations

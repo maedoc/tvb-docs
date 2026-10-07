@@ -1,3 +1,7 @@
+---
+bibliography:
+  - ../../references.bib
+---
 # Dumont–Gutkin
 
 The Dumont–Gutkin model is an exact macroscopic description of two coupled
@@ -109,6 +113,8 @@ are the shipped `NArray` defaults. The firing rates are bounded below
   be mean-field.
 
 ## Paper Reference
+
+Primary reference: [@dumontGutkin2019; @montbrio2015].
 
 Dumont, G. and Gutkin, B. (2019). Macroscopic phase resetting-curves determine
 oscillatory coherence and signal transfer in inter-coupled neural circuits.

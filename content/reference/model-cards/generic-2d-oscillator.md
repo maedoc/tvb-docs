@@ -1,3 +1,7 @@
+---
+bibliography:
+  - ../../references.bib
+---
 # Generic 2D oscillator
 
 The Generic2dOscillator is TVB's configurable two-dimensional population model:
@@ -104,10 +108,12 @@ population-model template is described on the
 
 ## Paper Reference
 
+Primary reference: [@fitzhugh1961; @nagumo1962].
+
 The model has no single origin paper: it is TVB's generic two-variable
 population oscillator, a superset of FitzHugh–Nagumo — FitzHugh, R. (1961).
 Impulses and physiological states in theoretical models of nerve membrane.
-*Biophysical Journal*, 1: 445 — and Nagumo, J., Aguchi, S. and Yoshizawa, S.
+*Biophysical Journal*, 1: 445 — and Nagumo, J., Arimoto, S. and Yoshizawa, S.
 (1962). An active pulse transmission line simulating nerve axon. *Proceedings of
 the IRE*, 50: 2061.
 

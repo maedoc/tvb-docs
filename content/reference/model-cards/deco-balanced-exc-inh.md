@@ -1,3 +1,7 @@
+---
+bibliography:
+  - ../../references.bib
+---
 # Deco Balanced Excitatory–Inhibitory
 
 `DecoBalancedExcInh` is `ReducedWongWangExcInh` with one addition: a single
@@ -133,6 +137,8 @@ The unmodified two-population model is
 single-population ancestor is [Reduced Wong–Wang](reduced-wong-wang.md).
 
 ## Paper Reference
+
+Primary reference: [@deco2021].
 
 Deco, G., Kringelbach, M.L., Arnatkeviciute, A., Oldham, S., Sabaroedin, K.,
 Rogasch, N.C., Aquino, K.M. and Fornito, A. (2021). Dynamical consequences of

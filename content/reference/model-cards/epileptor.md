@@ -1,3 +1,7 @@
+---
+bibliography:
+  - ../../references.bib
+---
 # Epileptor
 
 The Epileptor is a six-dimensional composite neural mass built to reproduce the
@@ -180,8 +184,10 @@ card follows the code.
 
 ## Paper Reference
 
+Primary reference: [@jirsa2014; @proix2014].
+
 Jirsa, V.K., Stacey, W.C., Quilichini, P.P., Ivanov, A.I. and Bernard, C.
-(2014). On the nature of seizure dynamics. *Brain*, 124(8): 2210–2230. The
+(2014). On the nature of seizure dynamics. *Brain*, 137(8): 2210–2230. The
 equations, default parameters and the fast/slow decomposition used here are
 taken from that paper.
 

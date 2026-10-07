@@ -1,3 +1,7 @@
+---
+bibliography:
+  - ../../references.bib
+---
 # Jansen–Rit
 
 The Jansen–Rit model is the canonical EEG neural mass: a cortical column made
@@ -107,6 +111,8 @@ is the one described generally on the
 [neural mass models](../../explanation/neural-mass-models.md) page.
 
 ## Paper Reference
+
+Primary reference: [@jansenRit1995].
 
 Jansen, B.H. and Rit, P.G. (1995). Electroencephalogram and visual evoked
 potential generation in a mathematical model of coupled cortical columns.

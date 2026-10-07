@@ -1,3 +1,7 @@
+---
+bibliography:
+  - ../../references.bib
+---
 # Reduced Wong–Wang
 
 The Reduced Wong–Wang model is the one-variable, NMDA-mediated firing-rate
@@ -111,6 +115,8 @@ The population-level idea behind these reductions is in
 [neural mass models](../../explanation/neural-mass-models.md).
 
 ## Paper Reference
+
+Primary reference: [@wongWang2006; @deco2014].
 
 Wong, K.-F. and Wang, X.-J. (2006). A recurrent network mechanism of time
 integration in perceptual decisions. *Journal of Neuroscience*, 26(4):

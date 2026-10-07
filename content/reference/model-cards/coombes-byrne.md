@@ -1,3 +1,7 @@
+---
+bibliography:
+  - ../../references.bib
+---
 # Coombes–Byrne
 
 The Coombes–Byrne model is the Montbrió–Pazo–Roxin mean-field population
@@ -108,6 +112,8 @@ firing rates than the published one. This card follows the code.
   [excitation–inhibition balance](../../explanation/excitation-inhibition-balance.md).
 
 ## Paper Reference
+
+Primary reference: [@coombesByrne2019; @montbrio2015].
 
 Coombes, S. and Byrne, Á. (2019). Next generation neural mass models. In
 *Nonlinear Dynamics in Computational Neuroscience*, Springer, Cham, pp. 1–16.

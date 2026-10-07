@@ -1,3 +1,7 @@
+---
+bibliography:
+  - ../../references.bib
+---
 # Reduced Set Hindmarsh–Rose
 
 The Reduced Set Hindmarsh–Rose model is a **population (density) formulation** of
@@ -218,6 +222,8 @@ oscillators instead of Hindmarsh–Rose bursters — is
 [Reduced Set FitzHugh–Nagumo](reduced-set-fitzhugh-nagumo.md).
 
 ## Paper Reference
+
+Primary reference: [@stefanescu2008; @hindmarshRose1984].
 
 Stefanescu, R. and Jirsa, V.K. (2008). A low dimensional description of globally
 coupled heterogeneous neural networks of excitatory and inhibitory neurons.

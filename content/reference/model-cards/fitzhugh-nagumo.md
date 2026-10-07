@@ -1,3 +1,7 @@
+---
+bibliography:
+  - ../../references.bib
+---
 # FitzHugh–Nagumo
 
 *Reference — model card and an interactive explorer.*
@@ -73,3 +77,7 @@ fig
 mo.md("The same model, coupled across a network, is simulated and inferred on the "
       "[Tutorial](../tutorials/tvbl-quickstart.md) and [How-to](../howtos/tvbl-inference.md) pages.")
 ```
+
+## Paper Reference
+
+Primary reference: [@fitzhugh1961; @nagumo1962].

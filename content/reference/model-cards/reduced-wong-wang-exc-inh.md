@@ -1,3 +1,7 @@
+---
+bibliography:
+  - ../../references.bib
+---
 # Reduced Wong–Wang Excitatory–Inhibitory
 
 The Reduced Wong–Wang Excitatory–Inhibitory model is the two-population version
@@ -140,6 +144,8 @@ variant that adds a region-level gain on the E/I drive is
 [Deco Balanced Excitatory–Inhibitory](deco-balanced-exc-inh.md).
 
 ## Paper Reference
+
+Primary reference: [@wongWang2006; @deco2014].
 
 Wong, K.-F. and Wang, X.-J. (2006). A recurrent network mechanism of time
 integration in perceptual decisions. *Journal of Neuroscience*, 26(4):

@@ -1,3 +1,7 @@
+---
+bibliography:
+  - ../../references.bib
+---
 # Gast–Schmidt–Knosche (SF)
 
 The Gast–Schmidt–Knosche SF model is the Montbrió–Pazo–Roxin QIF mean field with
@@ -110,6 +114,8 @@ $A \in [-1, 1]$, $B \in [-1, 1]$.
   instead of an explicit current, see [Coombes–Byrne](coombes-byrne.md).
 
 ## Paper Reference
+
+Primary reference: [@gast2020; @montbrio2015].
 
 Gast, R., Schmidt, H. and Knösche, T.R. (2020). A mean-field description of
 bursting dynamics in spiking neural networks with short-term adaptation.

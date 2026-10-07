@@ -1,3 +1,7 @@
+---
+bibliography:
+  - ../../references.bib
+---
 # Zetterberg–Jansen
 
 The Zetterberg–Jansen model is a Wilson–Cowan-derived cortical column model
@@ -117,6 +121,8 @@ $\kappa_i^2$ are computed once by `update_derived_parameters`.
   activity rather than unbounded growth.
 
 ## Paper Reference
+
+Primary reference: [@zetterberg1978; @jansenRit1995].
 
 Zetterberg, L.H., Kristiansson, L. and Mossberg, K. (1978). Performance of a
 model for a local neuron population. *Biological Cybernetics*, 31: 15–26.

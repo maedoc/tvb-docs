@@ -1,3 +1,7 @@
+---
+bibliography:
+  - ../../references.bib
+---
 # Kuramoto
 
 The Kuramoto model is a **phase oscillator**: each node carries a single state
@@ -98,6 +102,8 @@ term. `state_variable_range` is $\theta \in [0, 2\pi]$ and
   mass such as the [Wilson–Cowan](wilson-cowan.md) model.
 
 ## Paper Reference
+
+Primary reference: [@kuramoto1975; @strogatz2000].
 
 Kuramoto, Y. (1975). Self-entrainment of a population of coupled non-linear
 oscillators. In *International Symposium on Mathematical Problems in
