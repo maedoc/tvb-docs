@@ -24,6 +24,13 @@ parts:
       - file: content/reference/model-cards/dumont-gutkin.md
       - file: content/reference/model-cards/k-ion-ex.md
       - file: content/reference/model-cards/generic-2d-oscillator.md
+      - file: content/reference/model-cards/epileptor.md
+      - file: content/reference/model-cards/epileptor-2d.md
+      - file: content/reference/model-cards/montbrio-pazo-roxin.md
+      - file: content/reference/model-cards/coombes-byrne.md
+      - file: content/reference/model-cards/coombes-byrne-2d.md
+      - file: content/reference/model-cards/gast-smidt-knosche-sd.md
+      - file: content/reference/model-cards/gast-smidt-knosche-sf.md
       - file: content/reference/about-this-site.md
   - caption: Explanation
     chapters:
