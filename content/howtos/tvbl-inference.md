@@ -15,19 +15,14 @@ simulation summaries, using the same `tvbl` analysis as the
 
 import sys, pathlib
 import marimo as mo
-HAVE_TVBL = False
-try:
-    _p = pathlib.Path.cwd()
-    for _ in range(16):
-        if (_p / "myst.yml").exists() or _p == _p.parent:
-            break
-        _p = _p.parent
-    if (_p / "myst.yml").exists():
-        sys.path.insert(0, str(_p / "content" / "_code"))
-        import tvbl_docs as td
-        HAVE_TVBL = True
-except Exception:
-    HAVE_TVBL = False
+
+# The vendored tvb-lite engine lives in content/_code; make it importable from any page.
+_root = pathlib.Path.cwd()
+while not (_root / "myst.yml").exists() and _root != _root.parent:
+    _root = _root.parent
+sys.path.insert(0, str(_root / "content" / "_code"))
+
+import tvbl_docs as td
 ```
 
 ## 1. Sample the prior and simulate
@@ -35,11 +30,8 @@ except Exception:
 Draw parameters from the prior box and simulate each draw:
 
 ```{marimo} python
-if HAVE_TVBL:
-    params, feats = td.sbi_dataset(num_batch=4, num_item=8)
-    step1 = mo.md(f"Generated **{params.shape[1]}** simulations — params {params.shape}, features {feats.shape}.")
-else:
-    step1 = mo.md("")
+params, feats = td.sbi_dataset(num_batch=4, num_item=8)
+step1 = mo.md(f"Generated **{params.shape[1]}** simulations — params {params.shape}, features {feats.shape}.")
 step1
 ```
 
@@ -48,18 +40,15 @@ step1
 Train a MAF to model `p(parameters | features)`:
 
 ```{marimo} python
-if HAVE_TVBL:
-    import tvbl
-    maf = tvbl.cde.MAFEstimator(
-        param_dim=params.shape[0],
-        feature_dim=feats.shape[0],
-        n_flows=6,
-        hidden_units=64,
-    )
-    maf.train(params.T, feats.T, n_iter=150, learning_rate=1e-4)
-    step2 = mo.md(f"Trained a MAF on {params.shape[1]} simulations.")
-else:
-    step2 = mo.md("")
+import tvbl
+maf = tvbl.cde.MAFEstimator(
+    param_dim=params.shape[0],
+    feature_dim=feats.shape[0],
+    n_flows=6,
+    hidden_units=64,
+)
+maf.train(params.T, feats.T, n_iter=150, learning_rate=1e-4)
+step2 = mo.md(f"Trained a MAF on {params.shape[1]} simulations.")
 step2
 ```
 
@@ -68,19 +57,16 @@ step2
 ```{marimo} python
 import numpy as np
 import matplotlib.pyplot as plt
-if HAVE_TVBL:
-    post = maf.sample(feats[:, 0], 1000, np.random.RandomState(42))[0]
-    lo = np.array([v[0] for v in td.PARAM_LIMITS.values()])
-    hi = np.array([v[1] for v in td.PARAM_LIMITS.values()])
-    postfig, axes = plt.subplots(1, 4, figsize=(9, 2.2))
-    for i, name in enumerate(td.PARAM_LIMITS):
-        axes[i].hist(post[:, i], bins=20)
-        axes[i].axvline(lo[i], color="b"); axes[i].axvline(hi[i], color="b")
-        axes[i].axvline(params[i, 0], color="r")
-        axes[i].set_title(name)
-    postfig.tight_layout()
-else:
-    postfig = None
+post = maf.sample(feats[:, 0], 1000, np.random.RandomState(42))[0]
+lo = np.array([v[0] for v in td.PARAM_LIMITS.values()])
+hi = np.array([v[1] for v in td.PARAM_LIMITS.values()])
+postfig, axes = plt.subplots(1, 4, figsize=(9, 2.2))
+for i, name in enumerate(td.PARAM_LIMITS):
+    axes[i].hist(post[:, i], bins=20)
+    axes[i].axvline(lo[i], color="b"); axes[i].axvline(hi[i], color="b")
+    axes[i].axvline(params[i, 0], color="r")
+    axes[i].set_title(name)
+postfig.tight_layout()
 postfig
 ```
 

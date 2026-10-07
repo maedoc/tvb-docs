@@ -10,19 +10,14 @@
 :include: false
 
 import sys, pathlib
-HAVE_TVBL = False
-try:
-    _p = pathlib.Path.cwd()
-    for _ in range(16):
-        if (_p / "myst.yml").exists() or _p == _p.parent:
-            break
-        _p = _p.parent
-    if (_p / "myst.yml").exists():
-        sys.path.insert(0, str(_p / "content" / "_code"))
-        import tvbl_docs as td
-        HAVE_TVBL = True
-except Exception:
-    HAVE_TVBL = False
+
+# The vendored tvb-lite engine lives in content/_code; make it importable from any page.
+_root = pathlib.Path.cwd()
+while not (_root / "myst.yml").exists() and _root != _root.parent:
+    _root = _root.parent
+sys.path.insert(0, str(_root / "content" / "_code"))
+
+import tvbl_docs as td
 ```
 
 ## The fast–slow picture
@@ -36,18 +31,15 @@ trajectory circles it (oscillation) or settles on it (rest) is what you saw on t
 ```{marimo} python
 import numpy as np
 import matplotlib.pyplot as plt
-if HAVE_TVBL:
-    a, tau = 1.28, 1.35
-    X = np.linspace(-2.2, 2.2, 400)
-    Y_null = a - X                      # dY/dt = 0
-    X_null = X**3 / 3 - X               # dX/dt = 0 (Y on this curve)
-    fig, ax = plt.subplots(figsize=(5, 4))
-    ax.plot(X, Y_null, label=r"$\dot Y=0$")
-    ax.plot(X, X_null, label=r"$\dot X=0$")
-    ax.set_xlabel("X"); ax.set_ylabel("Y"); ax.legend()
-    ax.set_title("Nullclines")
-else:
-    fig = None
+a, tau = 1.28, 1.35
+X = np.linspace(-2.2, 2.2, 400)
+Y_null = a - X                      # dY/dt = 0
+X_null = X**3 / 3 - X               # dX/dt = 0 (Y on this curve)
+fig, ax = plt.subplots(figsize=(5, 4))
+ax.plot(X, Y_null, label=r"$\dot Y=0$")
+ax.plot(X, X_null, label=r"$\dot X=0$")
+ax.set_xlabel("X"); ax.set_ylabel("Y"); ax.legend()
+ax.set_title("Nullclines")
 fig
 ```
 

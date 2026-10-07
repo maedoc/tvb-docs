@@ -4,40 +4,36 @@ parts:
   - caption: Tutorials
     chapters:
       - file: content/tutorials/index.md
-        sections:
-          - file: content/tutorials/getting-started.md
-          - file: content/tutorials/first-simulation.md
-          - file: content/tutorials/phase-plane.md
-          - file: content/tutorials/tvbl-quickstart.md
+      - file: content/tutorials/getting-started.md
+      - file: content/tutorials/first-simulation.md
+      - file: content/tutorials/phase-plane.md
+      - file: content/tutorials/tvbl-quickstart.md
   - caption: How-to guides
     chapters:
       - file: content/howtos/index.md
-        sections:
-          - file: content/howtos/custom-stimulus.md
-          - file: content/howtos/tvbl-inference.md
+      - file: content/howtos/custom-stimulus.md
+      - file: content/howtos/tvbl-inference.md
   - caption: Reference
     chapters:
       - file: content/reference/index.md
-        sections:
-          - file: content/reference/model-cards/wilson-cowan.md
-          - file: content/reference/model-cards/fitzhugh-nagumo.md
-          - file: content/reference/model-cards/jansen-rit.md
-          - file: content/reference/model-cards/zetterberg-jansen.md
-          - file: content/reference/model-cards/larter-breakspear.md
-          - file: content/reference/model-cards/dumont-gutkin.md
-          - file: content/reference/model-cards/k-ion-ex.md
-          - file: content/reference/model-cards/generic-2d-oscillator.md
-          - file: content/reference/about-this-site.md
+      - file: content/reference/model-cards/wilson-cowan.md
+      - file: content/reference/model-cards/fitzhugh-nagumo.md
+      - file: content/reference/model-cards/jansen-rit.md
+      - file: content/reference/model-cards/zetterberg-jansen.md
+      - file: content/reference/model-cards/larter-breakspear.md
+      - file: content/reference/model-cards/dumont-gutkin.md
+      - file: content/reference/model-cards/k-ion-ex.md
+      - file: content/reference/model-cards/generic-2d-oscillator.md
+      - file: content/reference/about-this-site.md
   - caption: Explanation
     chapters:
       - file: content/explanation/index.md
-        sections:
-          - file: content/explanation/connectome.md
-          - file: content/explanation/functional-connectivity.md
-          - file: content/explanation/forward-models.md
-          - file: content/explanation/dynamical-systems-theory.md
-          - file: content/explanation/bifurcation-analysis.md
-          - file: content/explanation/excitation-inhibition-balance.md
-          - file: content/explanation/neural-mass-models.md
-          - file: content/explanation/phase-plane-explanation.md
-          - file: content/explanation/tvbl-sim-to-inference.md
+      - file: content/explanation/connectome.md
+      - file: content/explanation/functional-connectivity.md
+      - file: content/explanation/forward-models.md
+      - file: content/explanation/dynamical-systems-theory.md
+      - file: content/explanation/bifurcation-analysis.md
+      - file: content/explanation/excitation-inhibition-balance.md
+      - file: content/explanation/neural-mass-models.md
+      - file: content/explanation/phase-plane-explanation.md
+      - file: content/explanation/tvbl-sim-to-inference.md
