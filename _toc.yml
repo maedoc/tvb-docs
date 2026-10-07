@@ -13,6 +13,7 @@ parts:
       - file: content/howtos/index.md
       - file: content/howtos/custom-stimulus.md
       - file: content/howtos/tvbl-inference.md
+      - file: content/howtos/write-a-model.md
   - caption: Reference
     chapters:
       - file: content/reference/index.md
