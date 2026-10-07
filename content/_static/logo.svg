@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="TVB Simulation logo">
+  <title>TVB Simulation</title>
+  <rect width="64" height="64" rx="14" fill="#0f766e"/>
+  <!-- connectivity hub: perimeter + hub-to-node edges -->
+  <g stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" opacity="0.95">
+    <line x1="18" y1="18" x2="46" y2="18"/>
+    <line x1="46" y1="18" x2="46" y2="46"/>
+    <line x1="46" y1="46" x2="18" y2="46"/>
+    <line x1="18" y1="46" x2="18" y2="18"/>
+    <line x1="18" y1="18" x2="32" y2="32"/>
+    <line x1="46" y1="18" x2="32" y2="32"/>
+    <line x1="46" y1="46" x2="32" y2="32"/>
+    <line x1="18" y1="46" x2="32" y2="32"/>
+  </g>
+  <!-- nodes -->
+  <g fill="#ffffff">
+    <circle cx="18" cy="18" r="4.5"/>
+    <circle cx="46" cy="18" r="4.5"/>
+    <circle cx="46" cy="46" r="4.5"/>
+    <circle cx="18" cy="46" r="4.5"/>
+  </g>
+  <!-- hub node in accent --> 
+  <circle cx="32" cy="32" r="5" fill="#5eead4"/>
+</svg>

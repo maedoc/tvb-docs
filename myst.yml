@@ -15,6 +15,32 @@ project:
 
 site:
   title: TVB Simulation Documentation
+  # ---------------------------------------------------------------------------
+  # Template OPTIONS (book-theme). Keys map to the theme's `template.yml`
+  # `options:` list — see _build/templates/site/myst/book-theme/template.yml
+  # for every available key (logo, favicon, analytics, hide_*, outline_* ...).
+  # ---------------------------------------------------------------------------
+  options:
+    logo: content/_static/logo.svg        # shown in light mode
+    logo_dark: content/_static/logo-dark.svg  # shown in dark mode
+    logo_text: TVB Simulation             # brand text next to the logo
+    logo_url: https://the-virtual-brain.org
+    favicon: content/_static/favicon.ico
+    style: content/_static/theme.css      # custom CSS (re-skins --myst-color-*)
+    hide_search: false
+  # ---------------------------------------------------------------------------
+  # Template PARTS: named content slots rendered as MyST markdown. The default
+  # "Made with MyST" badge is the fallback for `primary_sidebar_footer`.
+  # ---------------------------------------------------------------------------
+  parts:
+    primary_sidebar_footer: |
+      **TVB Simulation Documentation** — numerical simulations for
+      [The Virtual Brain](https://the-virtual-brain.org) under the
+      [Apache-2.0 license](https://github.com/maedoc/tvb-docs).
+    footer: |
+      © 2026 The Virtual Brain project contributors ·
+      [Source](https://github.com/maedoc/tvb-docs) ·
+      [TVB](https://the-virtual-brain.org)
   # Nav URLs are MyST page slugs (file-basename-derived, deduplicated with
   # -1, -2, ...). After renaming/adding source files, re-check the slugs
   # listed in _build/site/config.json and update these links.

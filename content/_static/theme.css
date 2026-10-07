@@ -1,0 +1,65 @@
+/*
+ * tvb-docs theme overrides for the MyST book-theme.
+ *
+ * The book theme exposes its whole color skin as CSS custom properties on
+ * :root (see app-*.css in the theme build). Overriding them here re-skins
+ * nav, links, buttons, admonitions and the active-state consistently.
+ *
+ * Palette: a teal/neural theme ("TVB Simulation").
+ * Tweaks: reuse the --myst-color-* pattern; values here win because this
+ * file is injected via the theme `style` option after the theme CSS.
+ */
+:root {
+  /* Brand / primary (buttons, active nav, saturated elements) */
+  --myst-color-primary: #0f766e;
+  --myst-color-primary-hover: #0b5f59;
+  --myst-color-link: #0f766e;
+  --myst-color-link-hover: #0b5f59;
+  --myst-color-link-underline: #5eead4;
+  --myst-color-active: #0f766e;
+  --myst-color-active-bg: rgba(20, 184, 166, 0.18);
+  --myst-color-active-surface: #f0fdfa;
+  --myst-color-focus-ring: #14b8a6;
+  --myst-color-focus-outline: #99f6e4;
+
+  /* Accent surfaces (boxes, cross-refs, callouts) */
+  --myst-color-accent-text: #0b5f59;
+  --myst-color-accent-surface: #f0fdfa;
+  --myst-color-accent-surface-border: #99f6e4;
+  --myst-color-accent-surface-text: #0b5f59;
+  --myst-color-inverse-bg: #0f766e;
+  --myst-color-inverse-text: #ffffff;
+
+  /* Admonitions (info) in a complementary cyan */
+  --myst-color-info: #0e7490;
+  --myst-color-info-bg: #ecfeff;
+  --myst-color-info-text: #155e75;
+
+  /* Inline code */
+  --myst-color-code: #b45309;
+}
+
+/* Dark mode is applied by the theme via an `html.dark` class; keep the teal
+   brand accents legible on dark surfaces by brightening the primary. */
+html.dark {
+  --myst-color-primary: #2dd4bf;
+  --myst-color-primary-hover: #5eead4;
+  --myst-color-link: #5eead4;
+  --myst-color-link-hover: #99f6e4;
+  --myst-color-link-underline: #2dd4bf;
+  --myst-color-active: #2dd4bf;
+  --myst-color-active-bg: rgba(45, 212, 191, 0.18);
+  --myst-color-active-surface: #134e4a;
+  --myst-color-focus-ring: #5eead4;
+  --myst-color-focus-outline: #2dd4bf;
+  --myst-color-accent-text: #5eead4;
+  --myst-color-accent-surface: #134e4a;
+  --myst-color-accent-surface-border: #2dd4bf;
+  --myst-color-accent-surface-text: #5eead4;
+  --myst-color-inverse-bg: #134e4a;
+  --myst-color-inverse-text: #ffffff;
+  --myst-color-info: #67e8f9;
+  --myst-color-info-bg: #164e63;
+  --myst-color-info-text: #a5f3fc;
+  --myst-color-code: #fbbf24;
+}
