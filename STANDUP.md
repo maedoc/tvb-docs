@@ -82,3 +82,67 @@ and a GitHub Actions publish workflow.
 - Consider `.ipynb` notebook sources for native anywidget embeds (see finding 2).
 - Optional "Interactive Lab" pilot with marimo-studio static views (bounded, post-M4).
 - When ready to move hosting: transfer repo to `ins-amu` → `ins-amu.github.io/tvb-docs`.
+
+---
+
+## Second standup — landing restructure + content backlog plan
+
+**Done this pass** (commit `bec215b`):
+- Root `README.md` is now a **high-level TVB hub**: what TVB is, the four-piece
+  simulation pipeline (connectome → neural mass model → coupling → monitors/forward
+  models), an "executable docs" note, and a Diátaxis **Where to go** table linking
+  the four quadrants. It meshes with Diátaxis as the orientation entry point, not a
+  quadrant page.
+- The old pipeline/meta content ("What this repo is / Why this stack / Build") moved
+  to a Reference page **`content/reference/about-this-site.md`** (wired into `_toc.yml`).
+- **Citations infrastructure** seeded: `content/references.bib` (BibTeX) + pandoc-style
+  `@key` / `[@key]` citations; MyST renders a linked per-page References section
+  (verified: `@sanzleon2013` → "Sanz Leon et al. (2013)" + DOI). Recipe captured in
+  `about-this-site.md`.
+
+### Citations — how MyST handles them (the recipe)
+- Put a `.bib` in the content tree (`content/references.bib`); cite with `@key`
+  (narrative), `[@key]` (parenthetical), `[@a; @b]` (grouped), `[-@key]` (year only).
+- Per-page `bibliography:` frontmatter lists `.bib` files (local or remote URL).
+- DOI links also work standalone (`<doi:…>`); `myst build --doi-bib` writes fetched
+  DOIs to `myst.doi.bib` for offline/CI stability.
+- Numbered style: `site.options.numbered_references: true` in `myst.yml`.
+- Gotcha: the BibTeX parser rejects `@`/`[...]` inside `%` comment lines — keep
+  citation syntax out of comments.
+
+### Backlog (planned, not yet built)
+
+**B1 — Neural mass models overview (Explanation).** `content/explanation/neural-mass-models.md`:
+mean-field idea, canonical NMM structure (population variables → alpha-function
+synaptic filters → coupling matrix → sigmoid activation), bifurcation regimes.
+Cite `@wilsonCowan1972`, `@jansenRit1995`. Salvaged from tvb-wiki `concepts/neural-mass-model.md`
+(rewrite by hand, no citation spam / broken wikilinks).
+
+**B2 — Concept pages (Explanation).** Short, hand-written concept pages salvaged as
+*ideas only* from tvb-wiki: `connectome` / structural connectivity, `forward-models`
+(EEG/MEG/fMRI-BOLD), `functional-connectivity`, `bifurcation-analysis`,
+`dynamical-systems-theory`, `excitation-inhibition-balance`. Each links to the
+quadrants and to model cards.
+
+**B3 — Model reference cards for every model (Reference).** Reuse the
+`fitzhugh-nagumo` / `wilson-cowan` card format (equations + parameter table +
+interactive explorer where feasible). Inventory to cover:
+- Vendored `tvbl` engine (`content/_code/tvbl/models.py`): Epileptor, Epileptor2D,
+  MontbrioPazoRoxin, CoombesByrne(2D), GastSchmidtKnosche_SD/SF, DumontGutkin,
+  JansenRit, ZetterbergJansen, LarterBreakspear, Generic2dOscillator, Kuramoto,
+  SupHopf, WilsonCowan, ReducedWongWang(ExcInh), DecoBalancedExcInh,
+  ReducedSetFitzHughNagumo, ReducedSetHindmarshRose, Linear, KIonEx.
+- Canonical `tvb.simulator.models` superset (add as the tvb-root engine is wired in).
+- Each card gets its model's primary paper added to `references.bib`.
+
+**B4 — How-to: write a new model (How-to).** `content/howtos/write-a-model.md`:
+subclass `Model`, implement `dfun`/`coupling` hooks, register, run — executable
+example. Pairs with B3 (the reference cards) and the Explanation NMM page.
+
+**B5 — Citations rollout.** Add primary papers to `references.bib` as each model
+concept page lands; consider `numbered_references` once the reference count grows;
+add `myst build --doi-bib` to CI if DOI fetches prove flaky.
+
+**Explicitly out of scope** (tvb-wiki salvage decisions): the TVB-vs-NEST/NEURON
+comparison table (deferred), the 300-tool neuroimaging encyclopedia, and all of
+tvb-wiki's automation apparatus (cron/ralph/feynman/eval JSON/logs) — do not port.
